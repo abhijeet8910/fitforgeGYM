@@ -3,6 +3,10 @@ import Link from "next/link"
 import { useState } from "react"
 import Button from "./ui/Button"
 
+///To Do List
+//1.Design
+//2.Mobile view of the ServiceItems
+
 const navItems = [
     {name: 'Home', path: '/'},
     {name:'About', path: '/about'},
