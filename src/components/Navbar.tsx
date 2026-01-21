@@ -1,6 +1,7 @@
 'use client'
 import Link from "next/link"
 import { useState } from "react"
+import Button from "./ui/Button"
 
 const navItems = [
     {name: 'Home', path: '/'},
@@ -37,7 +38,7 @@ const Navbar = () => {
                         return (
 
                         <div key={item.name} className="relative group cursor-pointer">
-                            <span>Services</span>
+                            <span className="hover:text-blue-500">Services</span>
                             <ul className="hidden group-hover:flex flex-col space-y-4 absolute top-full left-0 ">
                             {servicesItems.map(item => (
                                 <li key={item.name}>
@@ -60,7 +61,7 @@ const Navbar = () => {
             </ul>
             {/* cta fot laptop view*/}
             <div className="hidden lg:block">
-                CTA And Button
+                <Button text="Get Started" />
             </div>
 
             {/* tablet and mobile drawer */}
@@ -78,7 +79,7 @@ const Navbar = () => {
                     ))}
                     {/* CTA */}
                     <div className="">
-                CTA And Button
+                <Button text="Get Started" />
             </div>
                 </ul>
             )}
