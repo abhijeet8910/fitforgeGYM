@@ -2,6 +2,9 @@
 import Link from "next/link"
 import { useState } from "react"
 import Button from "./ui/Button"
+import Image from "next/image"
+import logo from '../../public/logo.png'
+import { Menu, X } from "lucide-react"
 
 ///To Do List
 //1.Design
@@ -33,7 +36,8 @@ const Navbar = () => {
         <nav className="max-w-7xl mx-auto p-6 flex justify-between items-center">
             {/* logo */}
             <div>
-                Logo
+                {/* <Image src={logo} alt="logo" height={100} width={100} className=""/> */}
+                logo
             </div>
             {/* laptop view */}
             <ul className="hidden lg:flex space-x-8">
@@ -43,10 +47,10 @@ const Navbar = () => {
 
                         <div key={item.name} className="relative group cursor-pointer">
                             <span className="hover:text-blue-500">Services</span>
-                            <ul className="hidden group-hover:flex flex-col space-y-4 absolute top-full left-0 ">
+                            <ul className="hidden group-hover:flex flex-col space-y-4 absolute top-full left-0 bg-linear-to-b from-slate-900/25 via-blue-900/75 to-slate-900/25 backdrop-blur-3xl p-4 rounded-3xl">
                             {servicesItems.map(item => (
                                 <li key={item.name}>
-                                    <Link href={item.path}>{item.name}</Link>
+                                    <Link href={item.path} className="hover:text-blue-500">{item.name}</Link>
                                 </li>
                             ))}
                         </ul>
@@ -57,7 +61,7 @@ const Navbar = () => {
                     else {
                     return(
                     <li key={item.name}>
-                        <Link href={item.path}>{item.name}</Link>
+                        <Link href={item.path} className="hover:text-blue-500 ">{item.name}</Link>
                     </li>
                     
                 )};
@@ -70,12 +74,12 @@ const Navbar = () => {
 
             {/* tablet and mobile drawer */}
             <div className="lg:hidden">
-                <button onClick={() => setIsOpen(!isOpen)}>{isOpen ? 'Close' : 'Open'}</button>
+                <button onClick={() => setIsOpen(!isOpen)}>{isOpen ? <X/> : <Menu/>}</button>
             </div>
 
             {/* tablet and mobile view */}
             {isOpen && (
-                <ul className="lg:hidden absolute top-full left-6 flex flex-col space-y-4  ">
+                <ul className="lg:hidden absolute top-full left-0 flex flex-col space-y-4 bg-linear-to-b from-slate-900/25 via-blue-900/75 to-fuchsia-900/25 backdrop-blur-3xl p-4 rounded-3xl w-full ">
                     {navItems.map(item => (
                         <li key={item.name}>
                             <Link href={item.path}>{item.name}</Link>
